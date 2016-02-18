@@ -8,7 +8,7 @@ systemctl enable httpd
 yum install mariadb-server mariadb -y
 systemctl start mariadb
 systemctl enable mariadb
-echo -e "\n\nsecret\nsecret\n\n\nn\n\n " | mysql_secure_installation 2>/dev/null
+echo -e "\n\nvagrant\nvagrant\n\n\nn\n\n " | mysql_secure_installation 2>/dev/null
 # ---------------------------------------------------------------------------
 # Install php
 # ---------------------------------------------------------------------------
@@ -17,6 +17,7 @@ yum install php php-mysql php-gd php-pear -y
 # Install nagios
 # ---------------------------------------------------------------------------
 yum install nagios -y
+echo "vagrant" | htpasswd -i /etc/nagios/passwd nagiosadmin
 # ---------------------------------------------------------------------------
 # Install base plugins
 # ---------------------------------------------------------------------------
